@@ -1,29 +1,27 @@
 let count = 0;
 
-function render() {
+const render = () => {
   const counter = document.getElementById("counter");
   counter.innerHTML = count;
-}
+};
 
-function increment() {
+const increment = () => {
   count++;
   render();
-}
+};
 
-function decrement() {
+const decrement = () => {
   count--;
   render();
-}
+};
 
 const minus = document.getElementById("minus");
-minus.onclick = decrement;
+minus.addEventListener("click", decrement);
 
 const plus = document.getElementById("plus");
-plus.onclick = increment;
+plus.addEventListener("click", increment);
 
 let interval = setInterval(increment, 1000);
 
 const pause = document.getElementById("pause");
-pause.onclick = function () {
-  clearInterval(interval);
-};
+pause.addEventListener("click", () => clearInterval(interval));
